@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 
     public float upForce;
 
+    public GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,5 +30,13 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Player collided with " + collision.gameObject.name);
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(collider.gameObject.name == "Score")
+        {
+            gameManager.RegisterScore();
+        }
     }
 }

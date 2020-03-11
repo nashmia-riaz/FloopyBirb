@@ -20,6 +20,7 @@ public class PillarController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Destroy(this.gameObject);
+        if(collider.gameObject.name == "Destroyer")
+            Destroy(this.gameObject);
     }
 }
